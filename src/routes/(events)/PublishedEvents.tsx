@@ -1,7 +1,21 @@
-import { ArrowDownUp, Plus } from "lucide-react";
 import Header from "../../components/Header";
+import AddEventModal from "../../components/AddEventModal";
+
+import { ArrowDownUp, Plus } from "lucide-react";
 
 export default function PublishedEventsPage() {
+  const handleShowModal = () => {
+    const modal = document.getElementById(
+      "add_event_modal",
+    ) as HTMLDialogElement | null;
+
+    if (modal) {
+      modal.showModal();
+    } else {
+      console.error("Modal element not found");
+    }
+  };
+
   return (
     <div className="flex basis-[85%] flex-col gap-12 bg-gray-100">
       <Header link_left={"Events"} link_right={"Published events"} />
@@ -9,7 +23,7 @@ export default function PublishedEventsPage() {
         <div className="flex w-full items-center justify-between rounded-3xl bg-white p-4">
           <div className="flex items-center gap-4">
             <ArrowDownUp className="cursor-pointer" />
-            <Plus className="cursor-pointer" />
+            <Plus className="cursor-pointer" onClick={handleShowModal} />
           </div>
           <label className="input">
             <svg
@@ -199,6 +213,7 @@ export default function PublishedEventsPage() {
           <button className="join-item btn btn-soft btn-neutral">»</button>
         </div>
       </div>
+      <AddEventModal />
     </div>
   );
 }
