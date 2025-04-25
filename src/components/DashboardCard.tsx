@@ -12,7 +12,7 @@ export default function DashboardCard(props: {
     description,
     subtitle,
     icon,
-    className = "flex flex-col gap-4 rounded-3xl bg-blue-300/30 p-8",
+    className = "flex flex-col gap-4 rounded-3xl bg-blue-300/30 p-8 justify-center",
   } = props;
 
   return (

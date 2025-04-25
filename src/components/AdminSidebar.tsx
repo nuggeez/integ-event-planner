@@ -7,7 +7,7 @@ export default function Sidebar(props: { currentPage?: any }) {
   const { currentPage } = props;
 
   return (
-    <aside className="flex basis-[15%] flex-col bg-[#242424] px-4">
+    <aside className="sticky h-screen top-0 flex basis-[15%] flex-col bg-[#242424] px-4">
       <h1 className="my-12 text-center text-4xl text-white italic">FROLink</h1>
       <div className="px-2">
         <NavLink
@@ -22,15 +22,17 @@ export default function Sidebar(props: { currentPage?: any }) {
             <Calendar size={24} className="text-white" />
             <p className="text-white">All events</p>
           </summary>
-          <div className="mt-4 ml-8 flex flex-col items-start justify-start gap-6 rounded-3xl bg-white/20 px-8 py-4">
-            <NavLink to="/published_events" className="text-white">
+          <div className="mt-4 mb-4 ml-8 flex flex-col items-start justify-start gap-6 rounded-3xl bg-white/20 px-8 py-4">
+            <NavLink to="/published-events" className="text-white">
               Published events
             </NavLink>
-            <button className="text-white hover:underline">Draft events</button>
+            <NavLink to="/draft-events" className="text-white">
+              Draft events
+            </NavLink>
           </div>
         </details>
         <NavLink
-          to="/"
+          to="/manage-users"
           className="flex w-full flex-1 cursor-pointer flex-row items-center gap-4 rounded-3xl p-4 hover:bg-white/25"
         >
           <Users size={24} className="text-white" />
@@ -42,10 +44,8 @@ export default function Sidebar(props: { currentPage?: any }) {
             <p className="text-white">Settings</p>
           </summary>
           <div className="mt-4 ml-8 flex flex-col items-start justify-start gap-6 rounded-3xl bg-white/20 px-8 py-4">
-            <button className="text-white hover:underline">
-              Published events
-            </button>
-            <button className="text-white hover:underline">Draft events</button>
+            <button className="text-white">Published events</button>
+            <button className="text-white">Draft events</button>
           </div>
         </details>
         <details className="group">
@@ -54,13 +54,13 @@ export default function Sidebar(props: { currentPage?: any }) {
             <p className="text-white">Analytics</p>
           </summary>
           <div className="mt-4 ml-8 flex flex-col items-start justify-start gap-6 rounded-3xl bg-white/20 px-8 py-4">
-            <button className="text-white hover:underline">Performance</button>
-            <button className="text-white hover:underline">
+            <NavLink to="/performance" className="text-white">
+              Performance
+            </NavLink>
+            <NavLink to="/users-activity" className="text-white">
               User Activity
-            </button>
-            <button className="text-white hover:underline">
-              Export Reports
-            </button>
+            </NavLink>
+            <button className="text-white">Export Reports</button>
           </div>
         </details>
       </div>

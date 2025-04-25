@@ -1,15 +1,15 @@
-import DashboardCard from "../components/DashboardCard";
+import DashboardCard from "../../components/DashboardCard";
 
 import { Calendar, PieChart, TrendingUp, Users } from "lucide-react";
 import { useState } from "react";
 import { NavLink } from "react-router";
-import Header from "../components/Header";
+import Header from "../../components/Header";
 
-export default function Home() {
+export default function EventPlannerHomePage() {
   const [date, setDate] = useState("January 2025");
 
   return (
-    <div className="flex basis-[85%] flex-col gap-12 bg-gray-100">
+    <div className="flex flex-col gap-12 bg-gray-100">
       <Header link_left={"Home"} link_right={"Dashboard"} />
       <div className="flex flex-col gap-8 px-8">
         <div className="flex flex-col gap-2">

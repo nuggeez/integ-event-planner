@@ -1,20 +1,23 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 
-export default function AddEventModal() {
-  const [name, setName] = useState();
-  const [date, setDate] = useState();
-  const [startTime, setStartTime] = useState();
-  const [endTime, setEndTime] = useState();
-  const [location, setLocation] = useState();
-  const [attendeeLimit, setAttendeeLimit] = useState();
-  const [description, setDescription] = useState();
-  const [eventType, setEventType] = useState();
-  const [image, setImage] = useState();
+export default function EditEventModal(props: any) {
+  const [name, setName] = useState(props.name ?? null);
+  const [date, setDate] = useState(props.date ?? null);
+  const [startTime, setStartTime] = useState(props.startTime ?? null);
+  const [endTime, setEndTime] = useState(props.endTime ?? null);
+  const [location, setLocation] = useState(props.location ?? null);
+  const [attendeeLimit, setAttendeeLimit] = useState(
+    props.attendeeLimit ?? null,
+  );
+  const [description, setDescription] = useState(props.description ?? null);
+  const [eventType, setEventType] = useState(props.eventType) ?? null;
+  const [image, setImage] = useState(props.image ?? null);
 
   return (
-    <dialog id="add_event_modal" className="modal">
+    <dialog id="edit_event_modal" className="modal">
       <div className="modal-box w-full max-w-3xl">
-        <h3 className="my-4 text-lg font-bold">Create new event</h3>
+        <h3 className="my-4 text-lg font-bold">Edit event</h3>
         <div className="grid grid-cols-2 gap-4">
           <div className="flex flex-col gap-2">
             <h1 className="text-sm text-gray-400">Event details</h1>
