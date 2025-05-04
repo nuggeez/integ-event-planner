@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { Home, Calendar, Users, Settings, PieChart } from "lucide-react";
+import { Home, Calendar, Users, PieChart } from "lucide-react";
 import { NavLink } from "react-router";
 
 export default function Sidebar(props: { currentPage?: any }) {
