@@ -26,6 +26,7 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import "../global.css";
+import AttendeeProfilePage from "./routes/(attendee)/Profile.tsx";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -73,6 +74,7 @@ const router = createBrowserRouter([
       { path: "upcoming-events", Component: AttendeeUpcomingEventsPage },
       { path: "past-events", Component: AttendeePastEventsPage },
       { path: "feedbacks" },
+      { path: "profile", Component: AttendeeProfilePage },
     ],
   },
 ]);
