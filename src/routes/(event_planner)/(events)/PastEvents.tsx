@@ -1,13 +1,10 @@
-import Header from "../../../components/Header";
 import AddEventModal from "../../../components/AddEventModal";
 import EditEventModal from "../../../components/EditEventModal";
+import Header from "../../../components/Header";
 
-import { ArrowDownUp, Plus } from "lucide-react";
-import { useState } from "react";
+import { ArrowDownUp, Plus, Pencil, Trash2 } from "lucide-react";
 
 export default function EventPlannerPastEventsPage() {
-  const [form, setForm] = useState({});
-
   const handleAddModal = () => {
     const modal = document.getElementById(
       "add_event_modal",
@@ -20,7 +17,17 @@ export default function EventPlannerPastEventsPage() {
     }
   };
 
-  const handleEditModal = () => {};
+  const handleEditModal = () => {
+    const modal = document.getElementById(
+      "edit_event_modal",
+    ) as HTMLDialogElement | null;
+
+    if (modal) {
+      modal.showModal();
+    } else {
+      console.error("Edit modal not found");
+    }
+  };
 
   return (
     <div className="flex flex-col gap-12 bg-gray-100">
@@ -30,6 +37,7 @@ export default function EventPlannerPastEventsPage() {
           <div className="flex items-center gap-4">
             <ArrowDownUp className="cursor-pointer" />
             <Plus className="cursor-pointer" onClick={handleAddModal} />
+            <Trash2 className="cursor-pointer" />
           </div>
           <label className="input">
             <svg
@@ -63,50 +71,43 @@ export default function EventPlannerPastEventsPage() {
                 </th>
                 <th>Event Name</th>
                 <th>Type</th>
-                <th>Owner</th>
-                <th>Status</th>
-                <th>Event Date</th>
-                <th>Created</th>
+                <th>Location</th>
+                <th>Date</th>
+                <th>Start Time</th>
+                <th>End Time</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              {/* row 1 */}
-              <tr>
-                <th>
-                  <label>
-                    <input type="checkbox" className="checkbox" />
-                  </label>
-                </th>
-                <td>
-                  <div className="flex items-center gap-3">
-                    <div className="avatar">
-                      <div className="mask mask-squircle h-12 w-12">
-                        <img
-                          src="https://img.daisyui.com/images/profile/demo/2@94.webp"
-                          alt="Avatar Tailwind CSS Component"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="font-bold">Hart Hagerty</div>
-                      <div className="text-sm opacity-50">United States</div>
-                    </div>
+            {/* row 1 */}
+            <tr>
+              <th>
+                <label>
+                  <input type="checkbox" className="checkbox" />
+                </label>
+              </th>
+              <td>
+                <div className="flex items-center gap-3">
+                  <div>
+                    <div className="font-bold">Capstone Presentation</div>
                   </div>
-                </td>
-                <td>
-                  Zemlak, Daniel and Leannon
-                  <br />
-                  <span className="badge badge-ghost badge-sm">
-                    Desktop Support Technician
-                  </span>
-                </td>
-                <td>Purple</td>
-                <th>
-                  <button className="btn btn-ghost btn-xs">details</button>
-                </th>
-              </tr>
-            </tbody>
+                </div>
+              </td>
+              <td>Corporate</td>
+              <td>USTP Gymnasium</td>
+              <td>2025-06-24</td>
+              <td>09:00</td>
+              <td>12:00</td>
+              <th>
+                <button
+                  className="btn btn-ghost btn-xs p-2"
+                  onClick={handleEditModal}
+                >
+                  <Pencil className="h-4 w-4" />
+                </button>
+              </th>
+            </tr>
+          </tbody>
           </table>
         </div>
         <div className="join self-end">
