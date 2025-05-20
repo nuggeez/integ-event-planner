@@ -1,11 +1,11 @@
 import DashboardCard from "../../components/DashboardCard";
+import Header from "../../components/Header";
 
 import { Calendar, PieChart, TrendingUp, Users } from "lucide-react";
 import { useState } from "react";
 import { NavLink } from "react-router";
-import Header from "../../components/Header";
 
-export default function EventPlannerHomePage() {
+export default function AdminHomePage() {
   const [date, setDate] = useState("January 2025");
 
   return (

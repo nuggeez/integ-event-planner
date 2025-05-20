@@ -2,7 +2,7 @@ import AddUserModal from "../../../components/AddUserModal";
 import EditUserModal from "../../../components/EditUserModal";
 import Header from "../../../components/Header";
 
-import { ArrowDownUp, Plus } from "lucide-react";
+import { ArrowDownUp, Plus, Pencil, Trash2 } from "lucide-react";
 
 export default function EventPlannerManageAttendeesPage() {
   const handleAddModal = () => {
@@ -17,6 +17,18 @@ export default function EventPlannerManageAttendeesPage() {
     }
   };
 
+  const handleEditModal = () => {
+    const modal = document.getElementById(
+      "edit_user_modal",
+    ) as HTMLDialogElement | null;
+
+    if (modal) {
+      modal.showModal();
+    } else {
+      console.error("Edit modal not found");
+    }
+  };
+
   return (
     <div className="flex flex-col gap-12 bg-gray-100">
       <Header link_left={"Attendees"} link_right={"Manage attendees"} />
@@ -25,6 +37,7 @@ export default function EventPlannerManageAttendeesPage() {
           <div className="flex items-center gap-4">
             <ArrowDownUp className="cursor-pointer" />
             <Plus className="cursor-pointer" onClick={handleAddModal} />
+            <Trash2 className="cursor-pointer" />
           </div>
           <label className="input">
             <svg
@@ -65,42 +78,36 @@ export default function EventPlannerManageAttendeesPage() {
               </tr>
             </thead>
             <tbody>
-              {/* row 1 */}
-              <tr>
-                <th>
-                  <label>
-                    <input type="checkbox" className="checkbox" />
-                  </label>
-                </th>
-                <td>
-                  <div className="flex items-center gap-3">
-                    <div className="avatar">
-                      <div className="mask mask-squircle h-12 w-12">
-                        <img
-                          src="https://img.daisyui.com/images/profile/demo/2@94.webp"
-                          alt="Avatar Tailwind CSS Component"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="font-bold">Hart Hagerty</div>
-                      <div className="text-sm opacity-50">United States</div>
-                    </div>
+            {/* row 1 */}
+            <tr>
+              <th>
+                <label>
+                  <input type="checkbox" className="checkbox" />
+                </label>
+              </th>
+              <td>
+                <div className="flex items-center gap-3">
+                  <div>
+                    <div className="font-bold">Kyla Ilogon</div>
                   </div>
-                </td>
-                <td>
-                  Zemlak, Daniel and Leannon
-                  <br />
-                  <span className="badge badge-ghost badge-sm">
-                    Desktop Support Technician
-                  </span>
-                </td>
-                <td>Purple</td>
-                <th>
-                  <button className="btn btn-ghost btn-xs">details</button>
-                </th>
-              </tr>
-            </tbody>
+                </div>
+              </td>
+              <td>Event Planner</td>
+              <td>kyla@gmail.com</td>
+              <td>
+                <span className="badge badge-success">Active</span>
+              </td>
+              <td>2024-03-08</td>
+              <th>
+                <button
+                  className="btn btn-ghost btn-xs p-2"
+                  onClick={handleEditModal}
+                >
+                  <Pencil className="h-4 w-4" />
+                </button>
+              </th>
+            </tr>
+          </tbody>
           </table>
         </div>
         <div className="join self-end">

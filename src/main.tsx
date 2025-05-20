@@ -5,7 +5,7 @@ import AdminManageUsersPage from "./routes/(admin)/(users)/ManageUsers.tsx";
 import AdminHomePage from "./routes/(admin)/Home.tsx";
 
 import EventPlannerRootLayout from "./routes/(event_planner)/EventPlannerRootLayout.tsx";
-import EventPlannerHomePage from "./routes/(admin)/Home.tsx";
+import EventPlannerHomePage from "./routes/(event_planner)/Home.tsx";
 import EventPlannerUpcomingEventsPage from "./routes/(event_planner)/(events)/UpcomingEvents.tsx";
 import EventPlannerPastEventsPage from "./routes/(event_planner)/(events)/PastEvents.tsx";
 import EventPlannerDraftEventsPage from "./routes/(event_planner)/(events)/DraftEvents.tsx";

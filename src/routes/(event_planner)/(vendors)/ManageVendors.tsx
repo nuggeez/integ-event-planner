@@ -1,19 +1,31 @@
-import AddUserModal from "../../../components/AddUserModal";
-import EditUserModal from "../../../components/EditUserModal";
+import AddVendorModal from "../../../components/AddVendorModal";
+import UpdateVendorModal from "../../../components/UpdateVendorModal";
 import Header from "../../../components/Header";
 
-import { ArrowDownUp, Plus } from "lucide-react";
+import { ArrowDownUp, Plus, Pencil, Trash2 } from "lucide-react";
 
 export default function EventPlannerManageVendorsPage() {
   const handleAddModal = () => {
     const modal = document.getElementById(
-      "add_user_modal",
+      "add_vendor_modal",
     ) as HTMLDialogElement | null;
 
     if (modal) {
       modal.showModal();
     } else {
       console.error("Modal element not found");
+    }
+  };
+
+  const handleUpdateModal = () => {
+    const modal = document.getElementById(
+      "update_vendor_modal",
+    ) as HTMLDialogElement | null;
+
+    if (modal) {
+      modal.showModal();
+    } else {
+      console.error("Update modal not found");
     }
   };
 
@@ -25,6 +37,7 @@ export default function EventPlannerManageVendorsPage() {
           <div className="flex items-center gap-4">
             <ArrowDownUp className="cursor-pointer" />
             <Plus className="cursor-pointer" onClick={handleAddModal} />
+            <Trash2 className="cursor-pointer" />
           </div>
           <label className="input">
             <svg
@@ -57,50 +70,46 @@ export default function EventPlannerManageVendorsPage() {
                   </label>
                 </th>
                 <th>Name</th>
-                <th>Role</th>
+                <th>Type</th>
+                <th>Contact Person</th>
                 <th>Email</th>
+                <th>Contact Number</th>
                 <th>Status</th>
-                <th>Date created</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              {/* row 1 */}
-              <tr>
-                <th>
-                  <label>
-                    <input type="checkbox" className="checkbox" />
-                  </label>
-                </th>
-                <td>
-                  <div className="flex items-center gap-3">
-                    <div className="avatar">
-                      <div className="mask mask-squircle h-12 w-12">
-                        <img
-                          src="https://img.daisyui.com/images/profile/demo/2@94.webp"
-                          alt="Avatar Tailwind CSS Component"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="font-bold">Hart Hagerty</div>
-                      <div className="text-sm opacity-50">United States</div>
-                    </div>
+            {/* row 1 */}
+            <tr>
+              <th>
+                <label>
+                  <input type="checkbox" className="checkbox" />
+                </label>
+              </th>
+              <td>
+                <div className="flex items-center gap-3">
+                  <div>
+                    <div className="font-bold">Cagayan Catering Co.</div>
                   </div>
-                </td>
-                <td>
-                  Zemlak, Daniel and Leannon
-                  <br />
-                  <span className="badge badge-ghost badge-sm">
-                    Desktop Support Technician
-                  </span>
-                </td>
-                <td>Purple</td>
-                <th>
-                  <button className="btn btn-ghost btn-xs">details</button>
-                </th>
-              </tr>
-            </tbody>
+                </div>
+              </td>
+              <td>Catering</td>
+              <td>Julie Ann Bakeshop</td>
+              <td>julie@gmail.com</td>
+              <td>09654551990</td>
+              <td>
+                <span className="badge badge-success">Active</span>
+              </td>
+              <th>
+                <button
+                  className="btn btn-ghost btn-xs p-2"
+                  onClick={handleUpdateModal}
+                >
+                  <Pencil className="h-4 w-4" />
+                </button>
+              </th>
+            </tr>
+          </tbody>
           </table>
         </div>
         <div className="join self-end">
@@ -109,8 +118,8 @@ export default function EventPlannerManageVendorsPage() {
           <button className="join-item btn btn-soft btn-neutral">»</button>
         </div>
       </div>
-      <AddUserModal />
-      <EditUserModal />
+      <AddVendorModal />
+      <UpdateVendorModal />
     </div>
   );
 }
